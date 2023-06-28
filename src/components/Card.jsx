@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import loading from "./loading";
+import Loading from "./Loading";
 
 function Card() {
   const [users, setUsers] = useState([]);
@@ -9,8 +9,10 @@ function Card() {
     try {
       const response = await fetch("https://api.github.com/users");
       setUsers(await response.json());
+      setLoading(false);
     } catch (error) {
       console.log("err" + error);
+      setLoading(false);
     }
   };
 
@@ -18,9 +20,9 @@ function Card() {
     getUsers();
   }, []);
 
-  // if (loading) {
-  //   return <loading />;
-  // }
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div>
@@ -43,15 +45,15 @@ function Card() {
                   <h4 className="text-2xl font-bold  text-[#2b2b2b]">
                     {user.login}
                   </h4>
-                  <p className="font-normal  text-[#696666]">Developer</p>
+                  <p className="font-normal  text-[#696666]">{user.type}</p>
                   <div className="info flex gap-8 text-center bg-white rounded-md px-4">
                     <div className="article">
                       <p className="font-normal text-[#817f7f] ">Article</p>
                       <p className="font-medium text-[#2b2b2b] ">38</p>
                     </div>
                     <div className="followers">
-                      <p className="font-normal text-[#817f7f] ">Type</p>
-                      <p className="font-medium text-[#2b2b2b] ">{user.type}</p>
+                      <p className="font-normal text-[#817f7f] ">Followers</p>
+                      <p className="font-medium text-[#2b2b2b] ">34</p>
                     </div>
                     <div className="rating">
                       <p className="font-normal text-[#817f7f] ">Rating</p>

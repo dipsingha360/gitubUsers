@@ -1,5 +1,9 @@
-function loading() {
-  return <div>loading...</div>;
+function Loading() {
+  return (
+    <h1 className="text-5xl text-white absolute top-[45%] left-[46%]">
+      Loading...
+    </h1>
+  );
 }
 
-export default loading;
+export default Loading;
