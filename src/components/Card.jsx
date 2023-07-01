@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { FcApproval } from "react-icons/fc";
 import Loading from "./Loading";
 
 function Card() {
@@ -42,8 +43,8 @@ function Card() {
                   />
                 </div>
                 <div className="card-right infos flex flex-col gap-2">
-                  <h4 className="text-2xl font-bold  text-[#2b2b2b]">
-                    {user.login}
+                  <h4 className="text-2xl font-bold flex gap-1 items-center  text-[#2b2b2b]">
+                    {user.login} <FcApproval className="w-5 h-5" />
                   </h4>
                   <p className="font-normal  text-[#696666]">{user.type}</p>
                   <div className="info flex gap-8 text-center bg-white rounded-md px-4">
